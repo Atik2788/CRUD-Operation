@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 const Users = () => {
     const [users, setUsers] = useState([])
 
+    // get all data form server
     useEffect(() =>{
         fetch('http://localhost:5000/users')
         .then(res => res.json())
@@ -13,10 +14,24 @@ const Users = () => {
         })
     }, [])
 
+
+    // delete data from server by id
     const handleDelete = id =>{
         const proceed = confirm("Are you want to sure to delete?")
         if(proceed){
-            console.log('delete', id);
+            fetch(`http://localhost:5000/users/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.deletedCount > 0){
+                    alert('Deleted successfull')
+
+                    // when delete a data its showing in the site, after relod then its removed,, to solve it(I mean without relod its removed)...
+                    const remaining = users.filter(user => user._id !== id);
+                    setUsers(remaining) 
+                }
+            })
         }
     }
 
@@ -43,7 +58,6 @@ const Users = () => {
                             <td>
                                 <Link to={`/update/${user._id}`} className="btn btn-success">Update</Link>
                                 <Link className="btn btn-success ms-3" onClick={()=>handleDelete(user._id)}>Delete</Link>
-                                <Link to={`/details/${user._id}`} className="btn btn-success ms-3">Details</Link>
                             </td>
                         </tr>
                     ))
