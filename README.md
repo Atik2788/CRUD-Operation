@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 ***
 ***
 
-# CRUD Operation: "Server"
+# CRUD Operation: "Server (M-59 ph hero)"
 
 ### cd server
 ### npm init -y
@@ -19,22 +19,24 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 ***
 
 ### in index.js "Basic Setup" >> <br/>
-const express = require ('express') <br/>
-const cors = require ('cors') <br/>
-const mongoose = require ('mongoose') <br/>
-const PORT = process.env.PORT || 7000; <br/>
- <br/>
-const app = express(); <br/>
-app.use(cors()) <br/>
+const express = require ('express')<br/>
+const cors = require ('cors')<br/>
+require('dotenv').config();<br/>
+const app = express();<br/>
+const PORT = process.env.PORT || 7000;<br/>
+<br/>
+// middleware<br/>
+app.use(cors())<br/>
+app.use(express.json())<br/>
+<br/>
 
- <br/>
-app.get('/', (req, res) =>{ <br/>
-  res.send({message: 'Surver is running...'}) <br/>
-})
+app.get('/', (req, res)=>{<br/>
+    res.send('server is running')<br/>
+})<br/>
+<br/>
+app.listen(PORT, ()=>{<br/>
+  console.log(`The surver is on port: ${PORT}`);<br/>
+})<br/>
 
- <br/>
-app.listen(PORT, (req, res)=>{ <br/>
-  console.log(`The surver is on port: ${PORT}`); <br/>
-}) <br/>
 
 
