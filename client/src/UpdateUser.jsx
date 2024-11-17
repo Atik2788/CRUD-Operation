@@ -5,7 +5,7 @@ const UpdateUser = () => {
   console.log(user);
 
   return (
-    <div className="vh-100 bg-primary d-flex justify-content-center align-items-center">
+    <div className="d-flex vh-100 justify-content-center align-items-center" style={{backgroundColor: '#12636e'}}>
       <div className="w-50 bg-white p-3 rounded">
         <form action="">
           <h2>Update User</h2>

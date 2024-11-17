@@ -45,12 +45,26 @@ async function run() {
         res.send(result);
     })
 
+    // post user 
+    app.post('/users', async(req, res) =>{
+        const user = req.body;
+        const result = await userCollection.insertOne(user)
+        res.send(result)
+    })
+
     // delete data by id
     app.delete('/users/:id', async(req, res) =>{
         const id = req.params.id;
         const query = {_id: new ObjectId(id)};
         const result = await userCollection.deleteOne(query);
         res.send(result);
+    })
+
+    // update a user
+    app.put('/users/:id', async(req, res) =>{
+        const updatedUser = req.body;
+        const id = req.params.id;
+
     })
 
 
