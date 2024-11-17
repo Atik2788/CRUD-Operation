@@ -62,9 +62,16 @@ async function run() {
 
     // update a user
     app.put('/users/:id', async(req, res) =>{
-        const updatedUser = req.body;
         const id = req.params.id;
+        const filter = {_id: new ObjectId(id)}
+        
+        const updatedBody = req.body;
+        const updatedUser = {
+            $set: updatedBody
+        }
 
+        const result = await userCollection.updateOne(filter, updatedUser)
+        res.send(result)
     })
 
 
