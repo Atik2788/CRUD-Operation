@@ -3,7 +3,6 @@
 ### cd client
 ### npm init vite
 ### cd client
-### npm install
 ### npm install bootstrap axios react-router-dom
 ***
 ### in app.jsx >>
@@ -16,20 +15,26 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 ### cd server
 ### npm init -y
-### npm install insta 11 express mongoos mongodb cors nodemon
+### npm install insta 11 express mongoos mongodb cors nodemon dotenv body-parser
 ***
-### in index.js >> 
-const express = require ('express'); <br/>
-const mongoose = require ('mongoose');<br/>
-const cors = require ('cors');<br/>
-const PORT = process.env.PORT || 3002;<br/>
-<br/>
-const app = express()<br/>
-app.use(cors())<br/>
-app.use(express.json())<br/>
-<br/>
-<br/>
-app.listen(PORT, () =>{<br/>
-    console.log("Server is running on ");<br/>
-})<br/>
+
+### in index.js "Basic Setup" >> <br/>
+const express = require ('express') <br/>
+const cors = require ('cors') <br/>
+const mongoose = require ('mongoose') <br/>
+const PORT = process.env.PORT || 7000; <br/>
+ <br/>
+const app = express(); <br/>
+app.use(cors()) <br/>
+
+ <br/>
+app.get('/', (req, res) =>{ <br/>
+  res.send({message: 'Surver is running...'}) <br/>
+})
+
+ <br/>
+app.listen(PORT, (req, res)=>{ <br/>
+  console.log(`The surver is on port: ${PORT}`); <br/>
+}) <br/>
+
 
