@@ -19,6 +19,7 @@
     "insta": "^0.0.1",
     "mongodb": "^6.10.0",
     "mongoose": "^8.8.1",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "vercel": "^39.0.2"
   }
 }

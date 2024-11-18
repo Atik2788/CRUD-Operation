@@ -11,8 +11,12 @@ app.use(express.json())
 
 
 
+// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.8ev4byy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+if (!process.env.DB_USER || !process.env.DB_PASSWORD) {
+  throw new Error('Database credentials are missing in environment variables');
+}
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.8ev4byy.mongodb.net/?retryWrites=true&w=majority`;
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.8ev4byy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -32,9 +36,15 @@ async function run() {
 
     // get user
     app.get('/users', async(req, res) =>{
-        // const cursor = {};
-        const result = await userCollection.find().toArray();
-        res.send(result)
+        // const result = await userCollection.find().toArray();
+        // res.send(result)
+
+        try {
+          const result = await userCollection.find().toArray();
+          res.send(result);
+        } catch (error) {
+          res.status(500).send({ message: 'Failed to fetch users', error });
+        }
     })
 
     // get user by id, get one user
