@@ -15,10 +15,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 ### cd server
 ### npm init -y
-### npm install insta 11 express mongoos mongodb cors nodemon dotenv body-parser
+### npm install insta 11 express mongoos mongodb cors nodemon dotenv body-parser vercel
 ***
 
-### in index.js "Basic Setup" >> <br/>
+### in index.js "Basic Setup" >>  <br/>
 const express = require ('express')<br/>
 const cors = require ('cors')<br/>
 require('dotenv').config();<br/>
@@ -37,6 +37,10 @@ app.get('/', (req, res)=>{<br/>
 app.listen(PORT, ()=>{<br/>
   console.log(`The surver is on port: ${PORT}`);<br/>
 })<br/>
+
+***
+### server link
+#### https://crud-khaki-phi.vercel.app/
 
 
 

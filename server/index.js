@@ -36,15 +36,8 @@ async function run() {
 
     // get user
     app.get('/users', async(req, res) =>{
-        // const result = await userCollection.find().toArray();
-        // res.send(result)
-
-        try {
-          const result = await userCollection.find().toArray();
-          res.send(result);
-        } catch (error) {
-          res.status(500).send({ message: 'Failed to fetch users', error });
-        }
+        const result = await userCollection.find().toArray();
+        res.send(result)       
     })
 
     // get user by id, get one user

@@ -16,7 +16,7 @@ const CreateUser = () => {
         const user = {name, email, age}
         // console.log(order);
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://crud-khaki-phi.vercel.app/users', {
             method: 'POST',
             headers:{
                 'content-type' : 'application/json'

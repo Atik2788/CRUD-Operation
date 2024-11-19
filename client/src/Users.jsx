@@ -7,7 +7,7 @@ const Users = () => {
 
     // get all data form server
     useEffect(() =>{
-        fetch('http://localhost:5000/users')
+        fetch('https://crud-khaki-phi.vercel.app/users')
         .then(res => res.json())
         .then(data =>{
             setUsers(data)
@@ -19,7 +19,7 @@ const Users = () => {
     const handleDelete = id =>{
         const proceed = confirm("Are you want to sure to delete?")
         if(proceed){
-            fetch(`http://localhost:5000/users/${id}`, {
+            fetch(`https://crud-khaki-phi.vercel.app/users/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

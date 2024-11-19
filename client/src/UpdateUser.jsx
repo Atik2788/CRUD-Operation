@@ -14,7 +14,7 @@ const UpdateUser = () => {
     const newUser = {name, email, age}
     console.log(newUser);
 
-    fetch(`http://localhost:5000/users/${user._id}`, {
+    fetch(`https://crud-khaki-phi.vercel.app/users/${user._id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
