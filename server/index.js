@@ -6,8 +6,16 @@ const app = express();
 const PORT = process.env.PORT || 7000;
 
 // middleware
-app.use(cors())
 app.use(express.json())
+// app.use(cors())
+
+app.use(cors({
+  origin: [
+    'https://tranquil-phoenix-8c2d0a.netlify.app', 
+    'http://localhost:5174',// Add localhost for development
+  ],
+  credentials: true
+}));
 
 
 

@@ -39,6 +39,8 @@ app.listen(PORT, ()=>{<br/>
 })<br/>
 
 ***
+### Live site link
+#### https://tranquil-phoenix-8c2d0a.netlify.app/
 ### server link
 #### https://crud-khaki-phi.vercel.app/
 
