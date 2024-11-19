@@ -37,6 +37,18 @@ app.get('/', (req, res)=>{<br/>
 app.listen(PORT, ()=>{<br/>
   console.log(`The surver is on port: ${PORT}`);<br/>
 })<br/>
+***
+//* if serversite dont work, follo:<br/> */
+1. vercel.json<br/> 
+2. package.json ("start": "node index.js",   "engines": {"node": "16.x"} )<br/> 
+3. app.use(cors({<br/> 
+  origin: [<br/> 
+    'https://tranquil-phoenix-8c2d0a.netlify.app', // client site link<br/> 
+    'http://localhost:5174',// Add localhost for development<br/> 
+  ],<br/> 
+  credentials: true<br/> 
+}));<br/> 
+4. vercel --prod<br/> 
 
 ***
 ### Live site link
