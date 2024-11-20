@@ -19,6 +19,7 @@ const router = createBrowserRouter(
       path: '/update/:id',
       element: <UpdateUser />,
       loader: async ({ params }) => fetch(`https://crud-khaki-phi.vercel.app/app/users/${params.id}`)}
+
   ]);
 
 function App() {

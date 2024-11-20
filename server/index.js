@@ -19,7 +19,6 @@ app.use(cors({
 
 
 
-
 if (!process.env.DB_USER || !process.env.DB_PASSWORD) {
   throw new Error('Database credentials are missing in environment variables');
 }
